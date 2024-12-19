@@ -1,1 +1,1 @@
-see README.pdf (sorry)
+see README.pdf (sorry, infodump)
