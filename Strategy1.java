@@ -1,4 +1,5 @@
 import page.codeberg.terratactician_expandoria.bots.*;
+import page.codeberg.terratactician_expandoria.world.*;
 import page.codeberg.terratactician_expandoria.world.CubeCoordinate;
 
 public class Strategy1 extends ChallengeBot {
@@ -42,6 +43,41 @@ public class Strategy1 extends ChallengeBot {
     //     controller.placeTile(world.getHand().get(0), new CubeCoordinate());
     //   }
     
-    // Actions = controller.
+    // Das wird ein Debug-Bot
+    int actionCount = world.getActionCount(); // always 1? 60 actions per round
+    BuildArea buildArea = world.getBuildArea();
+    Hand hand = world.getHand();
+    Map map = world.getMap();
+    Metrics redrawCosts = world.getRedrawCosts();
+    double redrawTime = world.getRedrawTime(); // first redraw 20s
+    Metrics resources = world.getResources();
+    Metrics resourceRate = world.getResourcesRate();
+    Rewards rewards = world.getRewards();
+    int round = world.getRound();
+    double roundTime = world.getRoundTime(); // 1 round is always 60s
+    Metrics targetResources = world.getTargetResources();
+
+    System.out.printf(""" 
+	---------------------------------
+	actionCount = %d
+	buildArea = %s
+	hand = %s
+	map = %s
+	redrawCosts = %s
+	redrawTime = %f
+	resources = %s
+	resourceRate = %s
+	rewards = %s
+	round = %d
+	roundTime = %f
+	targetResources = %s
+	---------------------------------
+	""",
+	actionCount, buildArea, hand, map, redrawCosts,
+	redrawTime, resources, resourceRate, rewards, round,
+	roundTime, targetResources
+	);
+
+    assert actionCount == 1;
   }
 }
